@@ -1,0 +1,305 @@
+@charset "UTF-8";
+
+
+//importo mi libreria 
+@import "libreria/variables";
+@import "libreria/mixin";
+
+
+/*reseteo algunos estilos y le cambio el tamaño de fuente preseteado de html*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/*le saco la decoration a todas las etiquetas de ancla*/
+a {
+  text-decoration: none;
+  cursor: pointer; /*cuando paso el mouse aparee una manito*/
+}
+
+/*voy a cargar las fuentes de letra del proyecto*/
+
+@font-face{
+
+    font-family: 'Kusanagi-Regular';
+    src: url(../fonts/Kusanagi.otf);
+
+}
+@font-face{
+
+    font-family: 'calvera';
+    src: url(../fonts/Calvera.ttf);
+
+}
+@font-face{
+
+    font-family: 'dharmagothic';
+    src: url(../fonts/DharmaGothicE_Heavy_I.otf);
+
+}
+@font-face{
+
+    font-family: 'bueno-regular';
+    src: url(../fonts/bueno-regular.otf);
+
+}
+
+
+/*estilos del header*/
+
+header {
+    width: 100%;
+    height: 10vh;
+    position: sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: white;
+
+   
+    
+}
+
+header nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: inherit;
+    display: grid;
+    grid-template-columns: (1fr 1fr); /*dos columnas , izquierda y derecha*/
+    align-items: center; /*los elementos en cada columna se alinean en el centro*/
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.5);
+    box-shadow: 0 5px 5px rgba(43, 43, 43, 0.4);
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    font-size: 2rem;
+    font-family: $fuente-bueno;
+}
+header nav ul a {
+    color:$color-negro;
+}
+header .nav-left {
+    display: flex;
+    justify-self: left;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;   /*es para dejar un espacio entre elementos*/
+
+}
+
+header .nav-right {
+    display: flex;
+    justify-self: right;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+header nav ul li a img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+header nav .nav-right .carrito-icon {
+    background-image: url('../img/icono_carrito.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /*se aproxime al tamño de mi contenedor*/
+    width: 25px;
+    height: 25px;
+}
+
+header nav .nav-right .cuenta-icon {
+    background-image: url('../img/icono_cuenta.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /*se aproxime al tamaño de mi contenedor*/
+    width: 25px;
+    height: 25px;
+}
+
+/*tengo que aprender mas para no recurrir a esta trampa*/
+header nav .nav-right li a {
+    opacity: 0;
+}
+
+/*estilos del contenido principal o main*/
+
+.contenedor-principal{
+    margin: 1rem;
+    height: 80vh;
+    background:#e9e9e9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-radius: 1.5rem;
+    position: relative; /* Establece el contexto de apilamiento */
+    
+}
+
+main .img-principal {
+    height: 30%;
+    display: flex;
+    padding: 1.6rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;    
+    width: 100%; /* Ocupa todo el ancho disponible */
+    position: relative; /* Establece el contexto de apilamiento */
+    z-index: 0; /* Coloca la imagen detrás del contenido de presentación */
+
+}
+main .presentacion-principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
+    position: relative; /* Establece el contexto de apilamiento */
+    z-index: 1; /* Coloca el contenido de presentación por encima de la imagen */
+        
+        .presentacion-principal-boton{
+            background-color: $color-naranja;
+            color: $color-negro;
+            border: none;
+            border-radius: 1rem;
+            font-size: 1.6rem;
+            font-weight:550;
+            width:15rem ;
+            height:3rem ;
+        
+        }
+        h2{
+            font-family: $fuente-bueno;
+            font-size: 2rem;
+        }
+        h1{
+            font-family: $fuente-dharma;
+            font-size: 4rem;
+        }
+        p{
+            font-family: $fuente-kusanagi;
+        }
+
+}
+
+main .descripcion-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    
+}
+
+
+
+
+/*estilos grilla productos*/
+
+/*display:none deshabilita las imagenes*/
+section .img-cinco, section .img-seis {
+    display: none;
+}
+
+.section-pagina-principal {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 4fr);
+    row-gap: 1rem;
+    align-content: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin-top: 1rem;
+    margin: 1rem;
+    }
+
+section div h2 {
+    font-family: $fuente-dharma;
+    font-size: 2rem;
+}    
+
+section .img-uno {
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: $degradado-vertical;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+section .img-dos {
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: $degradado-diagonal-inverso;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+section .img-tres {
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: $degradado-esquinas;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    
+}
+section .img-cuatro {
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background:$degradado-radial;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    
+}
+
+
+
+
+
+
+
+
+/*estilos del footer*/
+footer{
+    height: 10vh;
+    background-color: #262627;
+    text-align: center;
+    font-size: 1.6rem;
+    color: whitesmoke;
+    position: absolute;
+    margin-bottom: 0;
+    width: 100%;
+}
+
